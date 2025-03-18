@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Базовая тема приложения -->
+    <style name="Theme.MoldTripApp" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Основной цвет -->
+        <item name="colorPrimary">@color/purple_40</item>
+        <!-- Темный вариант основного цвета -->
+        <item name="colorPrimaryDark">@color/purple_80</item>
+        <!-- Акцентный цвет -->
+        <item name="colorAccent">@color/pink_40</item>
+        <!-- Фоновый цвет -->
+        <item name="android:windowBackground">@color/purple_grey_40</item>
+    </style>
+</resources>
