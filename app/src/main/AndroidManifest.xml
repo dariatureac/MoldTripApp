@@ -16,7 +16,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB7cicrWYRvZIsFnOa1U-nCqPOrHSaP1kQ" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MapFragment"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
