@@ -9,7 +9,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.CameraUpdateFactory
 import android.util.Log
 
-class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapFragment : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         this.googleMap = googleMap
         val moldovaCenter = LatLng(47.0, 28.8)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(moldovaCenter, 8f))
-        Log.d("MainActivity", "Map is ready")
+        Log.d("MapFragment", "Map is ready")
     }
 }
 

@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
     implementation (libs.play.services.maps)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.appcompat)
