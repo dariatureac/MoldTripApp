@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "223001518442",
+    "firebase_url": "https://pblme01-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pblme01",
+    "storage_bucket": "pblme01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223001518442:android:8d4befab88f695aa0a0513",
+        "android_client_info": {
+          "package_name": "com.example.moldtripapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALi-eUQcwnByEeEQs-pzyTi2RqppWPEC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

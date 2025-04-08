@@ -1,78 +1,79 @@
-package com.example.moldtripapp.code
-import com.google.android.gms.maps.model.LatLng
+package com.example.moldtripapp
+
 import kotlin.math.*
 
+/**
+ * Класс для работы с маршрутами: вычисление расстояний, построение оптимального маршрута
+ * и расчёт общей длины маршрута.
+ */
 class Algorithm {
-    fun calculateDistance(point1: LatLng, point2: LatLng): Double {
-        val earthRadius = 6371.0
+
+    // Радиус Земли в километрах
+    private val EARTH_RADIUS = 6371.0
+
+    /**
+     * Вычисляет расстояние между двумя точками на поверхности Земли (в километрах)
+     * с использованием формулы гаверсинусов.
+     *
+     * @param point1 Первая точка (широта и долгота).
+     * @param point2 Вторая точка (широта и долгота).
+     * @return Расстояние между точками в километрах.
+     */
+    fun calculateDistance(point1: ParcelablePlace, point2: ParcelablePlace): Double {
         val dLat = Math.toRadians(point2.latitude - point1.latitude)
         val dLon = Math.toRadians(point2.longitude - point1.longitude)
-        val a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(Math.toRadians(point1.latitude)) * Math.cos(Math.toRadians(point2.latitude)) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2)
-        val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-        return earthRadius * c
+        val a = sin(dLat / 2) * sin(dLat / 2) +
+                cos(Math.toRadians(point1.latitude)) * cos(Math.toRadians(point2.latitude)) *
+                sin(dLon / 2) * sin(dLon / 2)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        return EARTH_RADIUS * c
     }
 
-    // Алгоритм Nearest Neighbor
-    private fun nearestNeighbor(places: List<ParcelablePlace>): List<ParcelablePlace> {
+    /**
+     * Находит оптимальный маршрут, используя алгоритм ближайшего соседа.
+     * Начинает с начальной точки (start) и добавляет ближайшие точки, пока не посетит все.
+     *
+     * @param places Список точек для построения маршрута.
+     * @param start Начальная точка маршрута.
+     * @return Список точек в порядке оптимального маршрута.
+     */
+    fun findOptimalRoute(places: List<ParcelablePlace>, start: ParcelablePlace): List<ParcelablePlace> {
         if (places.isEmpty()) return emptyList()
 
-        val route = mutableListOf<ParcelablePlace>()
         val unvisited = places.toMutableList()
-        var current = unvisited.removeAt(0)
+        val route = mutableListOf<ParcelablePlace>()
+        var current = start
+
         route.add(current)
+        unvisited.remove(current)
 
         while (unvisited.isNotEmpty()) {
-
-            val nearest = unvisited.minByOrNull { place ->
-                calculateDistance(current.latLng, place.latLng)
-            }!!
+            val nearest = unvisited.minByOrNull { calculateDistance(current, it) }
+            if (nearest == null) {
+                // Это не должно произойти, так как мы проверяем unvisited.isNotEmpty(),
+                // но добавляем для безопасности
+                break
+            }
+            route.add(nearest)
             current = nearest
             unvisited.remove(nearest)
-            route.add(nearest)
         }
 
-        route.add(route[0])
         return route
     }
 
-    private fun twoOpt(route: List<ParcelablePlace>): List<ParcelablePlace> {
-        var bestRoute = route.toMutableList()
-        var improved = true
-
-        while (improved) {
-            improved = false
-            for (i in 1 until bestRoute.size - 2) {
-                for (j in i + 1 until bestRoute.size - 1) {
-                    val oldDistance = calculateDistance(bestRoute[i - 1].latLng, bestRoute[i].latLng) +
-                            calculateDistance(bestRoute[j].latLng, bestRoute[j + 1].latLng)
-                    val newDistance = calculateDistance(bestRoute[i - 1].latLng, bestRoute[j].latLng) +
-                            calculateDistance(bestRoute[i].latLng, bestRoute[j + 1].latLng)
-
-                    if (newDistance < oldDistance) {
-                        val newRoute = bestRoute.toMutableList()
-                        newRoute.subList(i, j + 1).reverse()
-                        bestRoute = newRoute
-                        improved = true
-                    }
-                }
-            }
-        }
-
-        return bestRoute
-    }
-
-    fun findOptimalRoute(places: List<ParcelablePlace>): List<ParcelablePlace> {
-        val nnRoute = nearestNeighbor(places)
-        return twoOpt(nnRoute)
-    }
-
+    /**
+     * Вычисляет общую длину маршрута в километрах.
+     *
+     * @param route Список точек маршрута.
+     * @return Общая длина маршрута в километрах.
+     */
     fun calculateRouteDistance(route: List<ParcelablePlace>): Double {
         if (route.size < 2) return 0.0
+
         var totalDistance = 0.0
         for (i in 0 until route.size - 1) {
-            totalDistance += calculateDistance(route[i].latLng, route[i + 1].latLng)
+            totalDistance += calculateDistance(route[i], route[i + 1])
         }
         return totalDistance
     }
