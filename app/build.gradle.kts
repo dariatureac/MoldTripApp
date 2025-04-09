@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.services)
-    alias(libs.plugins.navigation.safeargs) 
+    alias(libs.plugins.navigation.safeargs)
 }
 android {
     namespace = "com.example.moldtrippapp"

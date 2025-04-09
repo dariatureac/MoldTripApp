@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingBottom="16dp">
+
+        <!-- Chisinau Image and Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/chisinauImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/chisinau0"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_corners" />
+
+                <TextView
+                    android:id="@+id/chisinauText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chisinau_text"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/label_background"
+                    android:padding="8dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Parks Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/parksImage"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rounded_corners"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/chisinau_parks" />
+
+                <TextView
+                    android:id="@+id/parksText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/parks_text"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/label_background"
+                    android:padding="8dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Museums Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/museumsImage"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rounded_corners"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/chisinau_museums" />
+
+                <TextView
+                    android:id="@+id/museumsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/museums_text"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/label_background"
+                    android:padding="8dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Monuments Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/monumentsImage"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/chisinau_monuments"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_corners" />
+
+                <TextView
+                    android:id="@+id/monumentsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monuments_text"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/label_background"
+                    android:padding="8dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Churches and Monasteries Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/churchesImage"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/chisinau_churches_monasteries"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_corners" />
+
+                <TextView
+                    android:id="@+id/churchesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/churches_text"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/label_background"
+                    android:padding="8dp" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

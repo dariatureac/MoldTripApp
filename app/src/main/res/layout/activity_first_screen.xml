@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple">
+
+    <TextView
+        android:id="@+id/moldTripText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="MoldTrip"
+        android:textColor="@color/green"
+        android:textSize="90sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/russoone_regular" />
+</RelativeLayout>

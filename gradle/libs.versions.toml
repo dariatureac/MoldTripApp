@@ -1,5 +1,5 @@
 [versions]
-android-gradle-plugin = "8.9.0"
+android-gradle-plugin = "8.9.1"
 kotlin = "2.0.21"
 google-services = "4.4.2"
 androidx-core-ktx = "1.15.0"
