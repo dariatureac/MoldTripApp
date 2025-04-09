@@ -3,4 +3,11 @@
     <string name="my_button">My Button</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mold_trip_text">MoldTrip</string>
+    <string name="chisinau_text">Chisinau</string>
+    <string name="parks_text">Parks</string>
+    <string name="museums_text">Museums</string>
+    <string name="monuments_text">Monuments</string>
+    <string name="churches_text">Churches and Monasteries</string>
+
 </resources>
